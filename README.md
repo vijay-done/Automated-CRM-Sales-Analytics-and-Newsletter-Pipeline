@@ -141,3 +141,15 @@ python src/main.py
 Computer Science and Business Systems Engineer
 
 GitHub: https://github.com/vijay-done
+
+## 📸 Project Screenshots
+
+### Executive Newsletter
+
+![Executive Newsletter](screenshots/newsletter_dashboard.png)
+
+---
+
+### Sales Performance Dashboard
+
+![Sales Dashboard](screenshots/sales_dashboard.png)
