@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Weekly Executive Sales Newsletter</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+
+            background: #F5F7FA;
+
+            font-family: Segoe UI, Arial, sans-serif;
+
+            color: #1F2937;
+
+            padding: 8px;
+
+        }
+
+        .container {
+
+            max-width: 1050px;
+
+            margin: auto;
+
+            background: white;
+
+            border-radius: 10px;
+
+            overflow: hidden;
+
+            box-shadow: 0 3px 12px rgba(0, 0, 0, .12);
+
+        }
+
+        /*================================*/
+
+        .header {
+
+            background: #0071CE;
+
+            color: white;
+
+            padding: 12px 20px;
+
+            border-bottom: 5px solid #FFC220;
+
+        }
+
+
+
+        .header h1 {
+
+            font-size: 26px;
+
+
+
+        }
+
+        .header h2 {
+
+            font-size: 20px;
+
+            font-weight: 600;
+
+        }
+
+        .header p {
+
+            margin-top: 5px;
+
+            font-size: 14px;
+
+        }
+
+        /*================================*/
+
+        .section {
+
+            padding: 11px 13px;
+
+        }
+
+        .section-title {
+
+            color: #0071CE;
+
+            font-size: 20px;
+
+            font-weight: bold;
+
+            margin-bottom: 8px;
+
+        }
+
+        /*================================*/
+
+        .kpi-grid {
+
+            display: grid;
+
+            grid-template-columns: repeat(2, 1fr);
+
+            gap: 7px;
+
+        }
+
+        .kpi-card {
+
+            background: white;
+
+            border-left: 5px solid #0071CE;
+
+            border-radius: 8px;
+
+            padding: 9px;
+
+            box-shadow: 0 2px 6px rgba(0, 0, 0, .08);
+
+        }
+
+        .kpi-card h3 {
+
+            color: #555;
+
+            font-size: 14px;
+
+            margin-bottom: 3px;
+
+        }
+
+        .kpi-card h2 {
+
+            color: #0071CE;
+
+            font-size: 25px;
+
+        }
+
+        /*================================*/
+
+        .highlight-grid {
+
+            display: grid;
+
+            grid-template-columns: repeat(2, 1fr);
+
+            gap: 7px;
+
+        }
+
+        .highlight-card {
+
+            background: #FAFAFA;
+
+            border-left: 5px solid #FFC220;
+
+            border-radius: 8px;
+
+            padding: 5px;
+
+            box-shadow: 0 2px 5px rgba(0, 0, 0, .08);
+
+        }
+
+        .highlight-card h3 {
+
+            color: #0071CE;
+
+            font-size: 16px;
+
+            margin-bottom: 3px;
+
+        }
+
+        .highlight-card p {
+
+            font-size: 14px;
+
+            line-height: 1.35;
+
+        }
+
+        /*================================*/
+
+        .chart-grid {
+
+            display: grid;
+
+            grid-template-columns: repeat(2, 1fr);
+
+            gap: 8px;
+
+        }
+
+        .chart-card {
+
+            background: white;
+
+            border-radius: 8px;
+
+            padding: 5px;
+
+            text-align: center;
+
+            box-shadow: 0 2px 5px rgba(0, 0, 0, .08);
+
+        }
+
+        .chart-card h3 {
+
+            color: #0071CE;
+
+            font-size: 16px;
+
+            margin-bottom: 3px;
+
+        }
+
+        .chart-card img {
+
+            width: 100%;
+
+            border-radius: 6px;
+
+        }
+
+        .center-chart {
+
+            grid-column: 1 / span 2;
+
+            width: 50%;
+
+            justify-self: center;
+
+        }
+
+        @media(max-width:900px) {
+
+            .kpi-grid {
+
+                grid-template-columns: 1fr;
+
+            }
+
+            .highlight-grid {
+
+                grid-template-columns: 1fr;
+
+            }
+
+            .chart-grid {
+
+                grid-template-columns: 1fr;
+
+            }
+
+            .center-chart {
+
+                grid-column: auto;
+
+                width: 100%;
+
+            }
+
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <div class="container">
+
+        <!-- Header -->
+
+        <div class="header">
+
+            <table width="100%" cellspacing="0" cellpadding="0">
+
+                <tr>
+
+                    <td align="left" width="80%">
+
+                        <h1 style="margin:0;font-size:26px;">
+                            Weekly Executive Sales Newsletter
+                        </h1>
+
+                    </td>
+
+                    <td align="right" width="20%">
+
+                        <h2 style="margin:0;font-size:22px;white-space:nowrap;">
+                            Week {{week_number}}
+                        </h2>
+
+                    </td>
+
+                </tr>
+
+            </table>
+
+            <p style="margin-top:6px;">
+                CRM Sales Operations Dashboard
+            </p>
+
+        </div>
+
+        \
+
+        <!-- KPI Section -->
+
+        <div class="section">
+
+            <div class="section-title">
+
+                Executive KPIs
+
+            </div>
+
+            <div class="kpi-grid">
+
+                <div class="kpi-card">
+
+                    <h3>💰 Revenue</h3>
+
+                    <h2>{{total_revenue}}</h2>
+
+                </div>
+
+                <div class="kpi-card">
+
+                    <h3>🎯 Target Revenue</h3>
+
+                    <h2>{{total_target}}</h2>
+
+                </div>
+
+                <div class="kpi-card">
+
+                    <h3>📈 Win Rate</h3>
+
+                    <h2>{{win_rate}}</h2>
+
+                </div>
+
+                <div class="kpi-card">
+
+                    <h3>📂 Opportunities</h3>
+
+                    <h2>{{total_opportunities}}</h2>
+
+                </div>
+
+            </div>
+
+        </div>
+        <!-- Executive Highlights -->
+
+        <div class="section">
+
+            <div class="section-title">
+
+                Weekly Executive Highlights
+
+            </div>
+
+            <div class="highlight-grid">
+
+                <div class="highlight-card">
+
+                    <h3>🏆 Top Region</h3>
+
+                    <p>{{top_region}}</p>
+
+                </div>
+
+                <div class="highlight-card">
+
+                    <h3>👤 Top Sales Representative</h3>
+
+                    <p>{{top_sales_rep}}</p>
+
+                </div>
+
+                <div class="highlight-card">
+
+                    <h3>📦 Best Selling Product</h3>
+
+                    <p>{{top_product}}</p>
+
+                </div>
+
+                <div class="highlight-card">
+
+                    <h3>🎯 Win Rate</h3>
+
+                    <p>{{win_rate}}</p>
+
+                </div>
+
+                <div class="highlight-card">
+
+                    <h3>📂 Open Deals</h3>
+
+                    <p>{{open_percentage}}</p>
+
+                </div>
+
+                <div class="highlight-card">
+
+                    <h3>📈 Weekly Summary</h3>
+
+                    <p>{{weekly_summary}}</p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- Dashboard -->
+
+        <div class="section">
+
+            <div class="section-title">
+
+                Sales Performance Dashboard
+
+            </div>
+
+            <div class="chart-grid">
+
+                <div class="chart-card">
+
+                    <h3>Top Sales Representatives</h3>
+
+                    <img src="cid:top_sales_rep" alt="Top Sales">
+
+                </div>
+
+                <div class="chart-card">
+
+                    <h3>Top Regions</h3>
+
+                    <img src="cid:top_regions" alt="Top Regions">
+
+                </div>
+
+                <div class="chart-card">
+
+                    <h3>Top Products</h3>
+
+                    <img src="cid:top_products" alt="Top Products">
+
+                </div>
+
+                <div class="chart-card">
+
+                    <h3>Deal Status Distribution</h3>
+
+                    <img src="cid:deal_status" alt="Deal Status">
+
+                </div>
+
+                <div class="chart-card center-chart">
+
+                    <h3>Priority Distribution</h3>
+
+                    <img src="cid:priority_distribution" alt="Priority">
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</body>
+
+</html>
